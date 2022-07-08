@@ -1,7 +1,6 @@
 import { Heading, Flex, Text } from "@chakra-ui/react";
 import { useEffect, useContext, useState } from "react";
 import axios from "axios";
-import HenrikDevValorantAPI from "unofficial-valorant-api";
 
 export default function MainPage() {
 	const [api, setApi] = useState([]);
@@ -33,8 +32,9 @@ export default function MainPage() {
 
 	return (
 		<Flex>
-			<Heading>Main Page</Heading>
-			<Heading>Valorant Stats</Heading>
+			<Heading>Hai</Heading>
+
+			<Text>{isLoading ? "Loading..." : api.name}</Text>
 		</Flex>
 	);
 }

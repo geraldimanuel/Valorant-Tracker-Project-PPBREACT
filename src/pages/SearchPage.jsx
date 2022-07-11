@@ -13,14 +13,16 @@ export default function SearchPage() {
 	const tagTemp = useRef();
 	const { userData } = useContext(UserContext);
 	const { fetchData } = useContext(UserContext);
-	const { data } = useContext(UserContext);
+	const { fetchDatammr } = useContext(UserContext);
+	const { fetchDatawin } = useContext(UserContext);
 
 	function handleSubmit(e) {
 		e.preventDefault();
 		userData.username = usernameTemp.current.value;
 		userData.tag = tagTemp.current.value;
 		fetchData();
-		console.log(data.data);
+		fetchDatammr();
+		fetchDatawin();
 		navigate("/MainPage");
 	}
 

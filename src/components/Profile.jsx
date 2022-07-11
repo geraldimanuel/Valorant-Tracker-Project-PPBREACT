@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { RiMedalFill, RiTrophyFill } from "react-icons/ri";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import profile from "../assets/profile.png";
 import { UserContext } from "../lib/UserContext";
 
 export default function Profile() {
@@ -16,6 +15,7 @@ export default function Profile() {
 	const text = useColorModeValue("#2C2C2C", "#FAFAFA");
 
 	const { data } = useContext(UserContext);
+	const { mmr } = useContext(UserContext);
 
 	return (
 		<Flex
@@ -45,15 +45,19 @@ export default function Profile() {
 						alignItems="center"
 						justifyContent="center"
 					>
-						<Image
-							src={data.data.card.small}
-							borderRadius="100%"
-							boxSize={{ md: "100px", base: "85px" }}
-							mt={{ md: "65px", base: "0px" }}
-						/>
-						<Heading size="md" py={{ md: 3, base: 1 }} color={text}>
-							{data.data.name} #{data.data.tag}
-						</Heading>
+						{data.data ? (
+							<Image
+								src={data.data.card.small}
+								borderRadius="100%"
+								boxSize={{ md: "100px", base: "85px" }}
+								mt={{ md: "65px", base: "0px" }}
+							/>
+						) : null}
+						{data.data ? (
+							<Heading size={{ md: "md", base: "sm" }} py={3} color={text}>
+								{data.data.name} #{data.data.tag}
+							</Heading>
+						) : null}
 					</Flex>
 					<Flex
 						className="level-mmr"
@@ -74,9 +78,11 @@ export default function Profile() {
 								<Text fontWeight="bold" mb="-3px" color="#46B8A3">
 									Level
 								</Text>
-								<Text fontWeight="bold" mt="-3px" color={text}>
-									{data.data.account_level}
-								</Text>
+								{data.data ? (
+									<Text fontWeight="bold" mt="-3px" color={text}>
+										{data.data.account_level}
+									</Text>
+								) : null}
 							</Flex>
 						</Flex>
 						<Flex alignItems="center" className="mmr" columnGap={2}>
@@ -85,16 +91,20 @@ export default function Profile() {
 								<Text fontWeight="bold" mb="-3px" color="#46B8A3">
 									MMR
 								</Text>
-								<Text fontWeight="bold" mt="-3px" color={text}>
-									810
-								</Text>
+								{mmr.data ? (
+									<Text fontWeight="bold" mt="-3px" color={text}>
+										{mmr.data.elo}
+									</Text>
+								) : null}
 							</Flex>
 						</Flex>
 					</Flex>
 				</Flex>
-				<Heading size="sm" color="#C0C2C8" mt={{ md: "35px", base: "0px" }}>
-					Updated {data.data.last_update}.
-				</Heading>
+				{data.data ? (
+					<Heading size="sm" color="#C0C2C8" mt={{ md: "35px", base: "0px" }}>
+						Updated {data.data.last_update}.
+					</Heading>
+				) : null}
 			</Flex>
 		</Flex>
 	);

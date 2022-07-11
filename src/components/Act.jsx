@@ -1,8 +1,17 @@
 import { Heading, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { VscTriangleUp, VscTriangleDown } from "react-icons/vsc";
+import { UserContext } from "../lib/UserContext";
+import { React, useContext } from "react";
 
 export default function Act() {
 	const bg = useColorModeValue("#FFFFFF", "#121212");
+	const { win } = useContext(UserContext);
+
+	const winCount = win.data.wins;
+	const loseCount = win.data.number_of_games;
+
+	const losstotal = loseCount - winCount;
+
 	return (
 		<Flex
 			bgColor={bg}
@@ -19,16 +28,18 @@ export default function Act() {
 			<Flex
 				className="win-loss"
 				alignItems="center"
-				justifyContent="center"
+				justifyContent="space-around"
 				gap={{ md: "80px", base: "30px" }}
 				h="100%"
 			>
 				<Flex className="win" alignItems="center" gap={3}>
 					<Flex flexDirection="column" alignItems="center">
 						<VscTriangleUp color="#46B8A3" />
-						<Text color="#46B8A3" fontWeight="bold" fontSize="lg">
-							5
-						</Text>
+						{win.data ? (
+							<Text color="#46B8A3" fontWeight="bold" fontSize="lg">
+								{win.data.wins}
+							</Text>
+						) : null}
 					</Flex>
 					<Heading color="#46B8A3" size="2xl">
 						Win
@@ -37,9 +48,11 @@ export default function Act() {
 				<Flex className="lose" alignItems="center" gap={3}>
 					<Flex flexDirection="column" alignItems="center">
 						<VscTriangleDown color="#EB3C3C" />
-						<Text color="#EB3C3C" fontWeight="bold" fontSize="lg">
-							17
-						</Text>
+						{win.data ? (
+							<Text color="#EB3C3C" fontWeight="bold" fontSize="lg">
+								{losstotal}
+							</Text>
+						) : null}
 					</Flex>
 					<Heading color="#EB3C3C" size="2xl">
 						Loss

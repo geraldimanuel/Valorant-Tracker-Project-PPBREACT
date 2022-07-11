@@ -6,11 +6,20 @@ import {
 	Image,
 	useColorModeValue,
 } from "@chakra-ui/react";
+import { React, useContext, useEffect } from "react";
 import { BsFillTriangleFill } from "react-icons/bs";
-import diamond from "../assets/diamond.png";
+import { UserContext } from "../lib/UserContext";
 
 export default function Rank() {
 	const bg = useColorModeValue("#FFFFFF", "#121212");
+	const { mmr } = useContext(UserContext);
+	const { rankChecker } = useContext(UserContext);
+	const { rankurl } = useContext(UserContext);
+
+	useEffect(() => {
+		rankChecker();
+	}, [mmr]);
+
 	return (
 		<Flex
 			bgColor={bg}
@@ -23,7 +32,11 @@ export default function Rank() {
 			<Heading size="sm" color="#AAB5B3">
 				Current rank
 			</Heading>
-			<Flex h="100%" alignItems="center">
+			<Flex
+				h="100%"
+				alignItems="center"
+				justifyContent={{ md: "space-evenly", base: "space-around" }}
+			>
 				<Flex
 					flexDirection="column"
 					w={{ md: "60%", base: null }}
@@ -33,9 +46,12 @@ export default function Rank() {
 					<Flex alignItems="center" gap={3}>
 						<BsFillTriangleFill color="#46B8A3" />
 						<Flex flexDirection="column">
-							<Heading color="#46B8A3" size={{ md: "xl", base: "lg" }}>
-								Diamonds 2
-							</Heading>
+							{mmr.data ? (
+								<Heading color="#46B8A3" size={{ md: "xl", base: "lg" }}>
+									{mmr.data.currenttierpatched}
+								</Heading>
+							) : null}
+
 							<Text color="#46B8A3" as="i">
 								200 RR
 							</Text>
@@ -43,7 +59,9 @@ export default function Rank() {
 					</Flex>
 				</Flex>
 				<Flex w="40%" justifyContent="center">
-					<Image src={diamond} boxSize={{ md: "100px", base: "80px" }} />
+					{mmr.data ? (
+						<Image src={rankurl} boxSize={{ md: "100px", base: "80px" }} />
+					) : null}
 				</Flex>
 			</Flex>
 		</Flex>

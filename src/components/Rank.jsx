@@ -17,7 +17,7 @@ export default function Rank() {
 	const { rankurl } = useContext(UserContext);
 
 	useEffect(() => {
-		rankChecker();
+		if (mmr.data != null) rankChecker();
 	}, [mmr]);
 
 	return (

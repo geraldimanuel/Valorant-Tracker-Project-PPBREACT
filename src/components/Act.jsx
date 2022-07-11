@@ -6,9 +6,13 @@ import { React, useContext } from "react";
 export default function Act() {
 	const bg = useColorModeValue("#FFFFFF", "#121212");
 	const { win } = useContext(UserContext);
+	let winCount;
+	let loseCount;
 
-	const winCount = win.data.wins;
-	const loseCount = win.data.number_of_games;
+	if (win.data != null) {
+		winCount = win.data.wins;
+		loseCount = win.data.number_of_games;
+	}
 
 	const losstotal = loseCount - winCount;
 

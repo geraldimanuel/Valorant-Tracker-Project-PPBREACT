@@ -1,12 +1,4 @@
-import {
-	Heading,
-	Flex,
-	Text,
-	Image,
-	useColorModeValue,
-} from "@chakra-ui/react";
-import { useEffect, useContext, useState } from "react";
-import axios from "axios";
+import { Flex, useColorModeValue } from "@chakra-ui/react";
 
 import Navbar from "../components/Navbar";
 import Profile from "../components/Profile";
@@ -14,37 +6,7 @@ import Act from "../components/Act";
 import Rank from "../components/Rank";
 import MatchHistory from "../components/MatchHistory";
 
-import { RiMedalFill, RiTrophyFill } from "react-icons/ri";
-import profile from "../assets/profile.png";
-
 export default function MainPage() {
-	const [api, setApi] = useState([]);
-	const [error, setError] = useState(null);
-	const [isLoaded, setIsLoaded] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		setIsLoading(true);
-	// 		setIsError(false);
-	// 		try {
-	// 			const result = await axios(
-	// 				"https://api.henrikdev.xyz/valorant/v1/account/steeb/IWL"
-	// 			);
-	// 			setIsLoaded(true);
-	// 			setApi(result.data);
-	// 			console.log(api);
-	// 		} catch (error) {
-	// 			setIsError(true);
-	// 			setError(error);
-	// 			console.log(error);
-	// 		}
-	// 		setIsLoading(false);
-	// 	};
-	// 	fetchData();
-	// }, []);
-
 	const bg = useColorModeValue("#F4F6F8", "#2C2C2C");
 
 	return (

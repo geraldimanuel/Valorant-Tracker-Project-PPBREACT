@@ -1,3 +1,4 @@
+import { React, useContext } from "react";
 import {
 	Heading,
 	Flex,
@@ -8,10 +9,14 @@ import {
 import { RiMedalFill, RiTrophyFill } from "react-icons/ri";
 import { GiLaurelsTrophy } from "react-icons/gi";
 import profile from "../assets/profile.png";
+import { UserContext } from "../lib/UserContext";
 
 export default function Profile() {
 	const bg = useColorModeValue("#FFFFFF", "#121212");
 	const text = useColorModeValue("#2C2C2C", "#FAFAFA");
+
+	const { data } = useContext(UserContext);
+
 	return (
 		<Flex
 			bgColor={bg}
@@ -41,13 +46,13 @@ export default function Profile() {
 						justifyContent="center"
 					>
 						<Image
-							src={profile}
+							src={data.data.card.small}
 							borderRadius="100%"
 							boxSize={{ md: "100px", base: "85px" }}
 							mt={{ md: "65px", base: "0px" }}
 						/>
 						<Heading size="md" py={{ md: 3, base: 1 }} color={text}>
-							steeb #IWL
+							{data.data.name} #{data.data.tag}
 						</Heading>
 					</Flex>
 					<Flex
@@ -70,7 +75,7 @@ export default function Profile() {
 									Level
 								</Text>
 								<Text fontWeight="bold" mt="-3px" color={text}>
-									120
+									{data.data.account_level}
 								</Text>
 							</Flex>
 						</Flex>
@@ -88,7 +93,7 @@ export default function Profile() {
 					</Flex>
 				</Flex>
 				<Heading size="sm" color="#C0C2C8" mt={{ md: "35px", base: "0px" }}>
-					Updated 5 minutes ago.
+					Updated {data.data.last_update}.
 				</Heading>
 			</Flex>
 		</Flex>

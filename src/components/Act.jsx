@@ -1,15 +1,17 @@
-import { Heading, Flex, Text } from "@chakra-ui/react";
+import { Heading, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { VscTriangleUp, VscTriangleDown } from "react-icons/vsc";
 
 export default function Act() {
+	const bg = useColorModeValue("#FFFFFF", "#121212");
 	return (
 		<Flex
-			bgColor="white"
+			bgColor={bg}
 			borderRadius="20px"
 			className="current-act"
-			w="50%"
-			p={10}
+			w={{ md: "50%", base: "100%" }}
+			p={{ md: 10, base: 5 }}
 			flexDirection="column"
+			rowGap={3}
 		>
 			<Heading size="sm" color="#AAB5B3">
 				Last Act
@@ -18,7 +20,7 @@ export default function Act() {
 				className="win-loss"
 				alignItems="center"
 				justifyContent="center"
-				gap="80px"
+				gap={{ md: "80px", base: "30px" }}
 				h="100%"
 			>
 				<Flex className="win" alignItems="center" gap={3}>

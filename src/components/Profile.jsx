@@ -6,6 +6,7 @@ import {
 	useColorModeValue,
 } from "@chakra-ui/react";
 import { RiMedalFill, RiTrophyFill } from "react-icons/ri";
+import { GiLaurelsTrophy } from "react-icons/gi";
 import profile from "../assets/profile.png";
 
 export default function Profile() {
@@ -61,6 +62,7 @@ export default function Profile() {
 							mt={{ md: 10, base: 0 }}
 							alignItems="center"
 							className="level"
+							columnGap={2}
 						>
 							<RiMedalFill size="36px" color={text} />
 							<Flex flexDirection="column" justifyContent="center" mt="-3px">
@@ -72,8 +74,8 @@ export default function Profile() {
 								</Text>
 							</Flex>
 						</Flex>
-						<Flex alignItems="center" className="mmr">
-							<RiTrophyFill size="35px" color={text} />
+						<Flex alignItems="center" className="mmr" columnGap={2}>
+							<GiLaurelsTrophy size="36px" color={text} />
 							<Flex flexDirection="column" justifyContent="center" mt="-3px">
 								<Text fontWeight="bold" mb="-3px" color="#46B8A3">
 									MMR

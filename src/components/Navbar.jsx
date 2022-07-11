@@ -6,8 +6,10 @@ import {
 	useColorMode,
 	useColorModeValue,
 } from "@chakra-ui/react";
-import { HiOutlineMenu } from "react-icons/hi";
+
 import { FaMoon, FaSun } from "react-icons/fa";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
 	const [active, setActive] = useState(false);
@@ -30,16 +32,18 @@ export default function Navbar() {
 			flexDirection="column"
 			rowGap={4}
 		>
-			<Button
-				color={icons}
-				className="menu-button"
-				bgColor={bgComponent}
-				p={1}
-				borderRadius="8px"
-				mt={2}
-			>
-				<HiOutlineMenu size="25px" />
-			</Button>
+			<Link to="/">
+				<Button
+					color={icons}
+					className="menu-button"
+					bgColor={bgComponent}
+					p={1}
+					borderRadius="8px"
+					mt={2}
+				>
+					<MdArrowBackIosNew size="25px" />
+				</Button>
+			</Link>
 			<Button
 				onClick={buttonHandle}
 				className="darkmode-button"

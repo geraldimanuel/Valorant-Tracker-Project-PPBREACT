@@ -1,5 +1,3 @@
-import { Heading, Flex } from "@chakra-ui/react";
-import { UserContext } from "./lib/UserContext";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 

@@ -5,6 +5,8 @@ import {
 	Text,
 	Image,
 	useColorModeValue,
+	SkeletonCircle,
+	Skeleton,
 } from "@chakra-ui/react";
 import { RiMedalFill, RiTrophyFill } from "react-icons/ri";
 import { GiLaurelsTrophy } from "react-icons/gi";
@@ -52,12 +54,18 @@ export default function Profile() {
 								boxSize={{ md: "100px", base: "85px" }}
 								mt={{ md: "65px", base: "0px" }}
 							/>
-						) : null}
+						) : (
+							<SkeletonCircle mt="90px" size={{ base: "85px", md: "100px" }} />
+						)}
 						{data.data ? (
 							<Heading size={{ md: "md", base: "sm" }} py={3} color={text}>
 								{data.data.name} #{data.data.tag}
 							</Heading>
-						) : null}
+						) : (
+							<Skeleton mt="20px" height="30px">
+								<Heading color={text}>loading.....</Heading>
+							</Skeleton>
+						)}
 					</Flex>
 					<Flex
 						className="level-mmr"
@@ -82,7 +90,13 @@ export default function Profile() {
 									<Text fontWeight="bold" mt="-3px" color={text}>
 										{data.data.account_level}
 									</Text>
-								) : null}
+								) : (
+									<Skeleton>
+										<Text fontWeight="bold" mt="-3px" color={text}>
+											200
+										</Text>
+									</Skeleton>
+								)}
 							</Flex>
 						</Flex>
 						<Flex alignItems="center" className="mmr" columnGap={2}>
@@ -95,7 +109,13 @@ export default function Profile() {
 									<Text fontWeight="bold" mt="-3px" color={text}>
 										{mmr.data.elo}
 									</Text>
-								) : null}
+								) : (
+									<Skeleton>
+										<Text fontWeight="bold" mt="-3px" color={text}>
+											200
+										</Text>
+									</Skeleton>
+								)}
 							</Flex>
 						</Flex>
 					</Flex>

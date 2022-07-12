@@ -4,13 +4,13 @@ import Navbar from "../components/Navbar";
 import Profile from "../components/Profile";
 import Act from "../components/Act";
 import Rank from "../components/Rank";
-import MatchHistory from "../components/MatchHistory";
+import ValorantNews from "../components/ValorantNews";
 
 export default function MainPage() {
 	const bg = useColorModeValue("#F4F6F8", "#2C2C2C");
 
 	return (
-		<Flex maxW="2000px" h="100vh" overflow={{ md: "hidden", base: "scroll" }}>
+		<Flex maxW="2000px">
 			<Navbar />
 			<Flex
 				w={{ md: "96%", base: "87%" }}
@@ -29,7 +29,7 @@ export default function MainPage() {
 					px={{ md: 8, base: 5 }}
 					flexDirection="column"
 					rowGap={{ base: 5, md: 5 }}
-					h="100%"
+					h="100vh"
 				>
 					<Flex
 						h={{ md: "45%", base: "100%" }}
@@ -40,8 +40,8 @@ export default function MainPage() {
 						<Rank />
 						<Act />
 					</Flex>
-					<Flex h={{ md: "55%", base: "100%" }}>
-						<MatchHistory />
+					<Flex overflow="auto">
+						<ValorantNews />
 					</Flex>
 				</Flex>
 			</Flex>

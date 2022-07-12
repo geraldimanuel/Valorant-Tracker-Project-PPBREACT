@@ -1,4 +1,10 @@
-import { Heading, Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+	Heading,
+	Flex,
+	Text,
+	useColorModeValue,
+	Skeleton,
+} from "@chakra-ui/react";
 import { VscTriangleUp, VscTriangleDown } from "react-icons/vsc";
 import { UserContext } from "../lib/UserContext";
 import { React, useContext } from "react";
@@ -42,7 +48,13 @@ export default function Act() {
 							<Text color="#46B8A3" fontWeight="bold" fontSize="lg">
 								{updateRank.data.wins}
 							</Text>
-						) : null}
+						) : (
+							<Skeleton>
+								<Text fontWeight="bold" mt="-3px">
+									200
+								</Text>
+							</Skeleton>
+						)}
 					</Flex>
 					<Heading color="#46B8A3" size="2xl">
 						Win
@@ -55,7 +67,13 @@ export default function Act() {
 							<Text color="#EB3C3C" fontWeight="bold" fontSize="lg">
 								{losstotal}
 							</Text>
-						) : null}
+						) : (
+							<Skeleton>
+								<Text fontWeight="bold" mt="-3px">
+									200
+								</Text>
+							</Skeleton>
+						)}
 					</Flex>
 					<Heading color="#EB3C3C" size="2xl">
 						Loss

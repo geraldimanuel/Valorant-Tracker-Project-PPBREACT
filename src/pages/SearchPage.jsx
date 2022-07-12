@@ -15,6 +15,7 @@ export default function SearchPage() {
 	const { fetchData } = useContext(UserContext);
 	const { fetchDatammr } = useContext(UserContext);
 	const { fetchDatawin } = useContext(UserContext);
+	const { fetchNews } = useContext(UserContext);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -23,6 +24,7 @@ export default function SearchPage() {
 		fetchData();
 		fetchDatammr();
 		fetchDatawin();
+		fetchNews();
 		navigate("/MainPage");
 	}
 

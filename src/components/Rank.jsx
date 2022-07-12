@@ -4,6 +4,8 @@ import {
 	Text,
 	Image,
 	useColorModeValue,
+	Skeleton,
+	SkeletonCircle,
 } from "@chakra-ui/react";
 import { React, useContext, useEffect } from "react";
 import { BsFillTriangleFill } from "react-icons/bs";
@@ -52,21 +54,35 @@ export default function Rank() {
 								<Heading color="#46B8A3" size={{ md: "xl", base: "lg" }}>
 									{updateRank.data.final_rank_patched}
 								</Heading>
-							) : null}
+							) : (
+								<Skeleton>
+									<Heading color="#46B8A3" size={{ md: "xl", base: "lg" }}>
+										Ascendant 2
+									</Heading>
+								</Skeleton>
+							)}
 
 							{mmr.data && act == "e5a1" ? (
 								// RR bakal ilang kalo bukan di e5a1 krn itu kan match terakhir
 								<Text color="#46B8A3" as="i">
 									{mmr.data.mmr_change_to_last_game} RR
 								</Text>
-							) : null}
+							) : (
+								<Skeleton>
+									<Text color="#46B8A3" as="i">
+										200 RR
+									</Text>
+								</Skeleton>
+							)}
 						</Flex>
 					</Flex>
 				</Flex>
 				<Flex w="40%" justifyContent="center">
 					{updateRank.data ? (
 						<Image src={rankurl} boxSize={{ md: "100px", base: "80px" }} />
-					) : null}
+					) : (
+						<SkeletonCircle size={{ base: "85px", md: "100px" }} />
+					)}
 				</Flex>
 			</Flex>
 		</Flex>

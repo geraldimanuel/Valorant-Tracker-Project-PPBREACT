@@ -69,6 +69,13 @@ export function UserProvider({ children }) {
 	const [mmr, setMmr] = useState([]);
 	const [win, setWin] = useState([]);
 	const [updateRank, setUpdateRank] = useState([]);
+	const [news, setNews] = useState([]);
+
+	// const [news, setNews] = useState({
+	// 	image: [],
+	// 	title: [],
+	// 	link: [],
+	// });
 
 	const [rankurl, setRankurl] = useState("");
 	const [act, setAct] = useState("e5a1");
@@ -173,6 +180,15 @@ export function UserProvider({ children }) {
 			});
 	};
 
+	const fetchNews = (e) => {
+		axios
+			.get(`https://api.henrikdev.xyz/valorant/v1/website/en-us?filter=esports`)
+			.then((res) => {
+				setNews(res.data);
+				console.log(res.data);
+			});
+	};
+
 	return (
 		<UserContext.Provider
 			value={{
@@ -189,6 +205,8 @@ export function UserProvider({ children }) {
 				setAct,
 				updateRank,
 				fetchDataupdateRank,
+				fetchNews,
+				news,
 			}}
 		>
 			{children}

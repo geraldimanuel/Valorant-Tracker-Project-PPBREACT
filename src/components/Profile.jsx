@@ -55,7 +55,10 @@ export default function Profile() {
 								mt={{ md: "65px", base: "0px" }}
 							/>
 						) : (
-							<SkeletonCircle mt="90px" size={{ base: "85px", md: "100px" }} />
+							<SkeletonCircle
+								mt={{ md: "90px", base: 0 }}
+								size={{ base: "85px", md: "100px" }}
+							/>
 						)}
 						{data.data ? (
 							<Heading size={{ md: "md", base: "sm" }} py={3} color={text}>

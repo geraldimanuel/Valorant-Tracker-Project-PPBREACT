@@ -31,7 +31,7 @@ export default function Act() {
 			<Flex
 				className="win-loss"
 				alignItems="center"
-				justifyContent="space-around"
+				justifyContent="space-evenly"
 				gap={{ md: "80px", base: "30px" }}
 				h="100%"
 			>

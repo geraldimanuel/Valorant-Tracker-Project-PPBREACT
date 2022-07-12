@@ -68,61 +68,63 @@ export function UserProvider({ children }) {
 	const [data, setData] = useState([]);
 	const [mmr, setMmr] = useState([]);
 	const [win, setWin] = useState([]);
+	const [updateRank, setUpdateRank] = useState([]);
 
 	const [rankurl, setRankurl] = useState("");
+	const [act, setAct] = useState("e5a1");
 
 	function rankChecker() {
-		if (mmr.data.currenttierpatched === "Unranked") {
+		if (updateRank.data.final_rank_patched === "Unranked") {
 			setRankurl(rank.Unranked);
-		} else if (mmr.data.currenttierpatched === "Iron 1") {
+		} else if (updateRank.data.final_rank_patched === "Iron 1") {
 			setRankurl(rank.Iron1);
-		} else if (mmr.data.currenttierpatched === "Iron 2") {
+		} else if (updateRank.data.final_rank_patched === "Iron 2") {
 			setRankurl(rank.Iron2);
-		} else if (mmr.data.currenttierpatched === "Iron 3") {
+		} else if (updateRank.data.final_rank_patched === "Iron 3") {
 			setRankurl(rank.Iron3);
-		} else if (mmr.data.currenttierpatched === "Silver 1") {
+		} else if (updateRank.data.final_rank_patched === "Silver 1") {
 			setRankurl(rank.Silver1);
-		} else if (mmr.data.currenttierpatched === "Silver 2") {
+		} else if (updateRank.data.final_rank_patched === "Silver 2") {
 			setRankurl(rank.Silver2);
-		} else if (mmr.data.currenttierpatched === "Silver 3") {
+		} else if (updateRank.data.final_rank_patched === "Silver 3") {
 			setRankurl(rank.Silver3);
-		} else if (mmr.data.currenttierpatched === "Bronze 1") {
+		} else if (updateRank.data.final_rank_patched === "Bronze 1") {
 			setRankurl(rank.Bronze1);
-		} else if (mmr.data.currenttierpatched === "Bronze 2") {
+		} else if (updateRank.data.final_rank_patched === "Bronze 2") {
 			setRankurl(rank.Bronze2);
-		} else if (mmr.data.currenttierpatched === "Bronze 3") {
+		} else if (updateRank.data.final_rank_patched === "Bronze 3") {
 			setRankurl(rank.Bronze3);
-		} else if (mmr.data.currenttierpatched === "Gold 1") {
+		} else if (updateRank.data.final_rank_patched === "Gold 1") {
 			setRankurl(rank.Gold1);
-		} else if (mmr.data.currenttierpatched === "Gold 2") {
+		} else if (updateRank.data.final_rank_patched === "Gold 2") {
 			setRankurl(rank.Gold2);
-		} else if (mmr.data.currenttierpatched === "Gold 3") {
+		} else if (updateRank.data.final_rank_patched === "Gold 3") {
 			setRankurl(rank.Gold3);
-		} else if (mmr.data.currenttierpatched === "Platinum 1") {
+		} else if (updateRank.data.final_rank_patched === "Platinum 1") {
 			setRankurl(rank.Platinum1);
-		} else if (mmr.data.currenttierpatched === "Platinum 2") {
+		} else if (updateRank.data.final_rank_patched === "Platinum 2") {
 			setRankurl(rank.Platinum2);
-		} else if (mmr.data.currenttierpatched === "Platinum 3") {
+		} else if (updateRank.data.final_rank_patched === "Platinum 3") {
 			setRankurl(rank.Platinum3);
-		} else if (mmr.data.currenttierpatched === "Diamond 1") {
+		} else if (updateRank.data.final_rank_patched === "Diamond 1") {
 			setRankurl(rank.Diamond1);
-		} else if (mmr.data.currenttierpatched === "Diamond 2") {
+		} else if (updateRank.data.final_rank_patched === "Diamond 2") {
 			setRankurl(rank.Diamond2);
-		} else if (mmr.data.currenttierpatched === "Diamond 3") {
+		} else if (updateRank.data.final_rank_patched === "Diamond 3") {
 			setRankurl(rank.Diamond3);
-		} else if (mmr.data.currenttierpatched === "Ascendant 1") {
+		} else if (updateRank.data.final_rank_patched === "Ascendant 1") {
 			setRankurl(rank.Ascendant1);
-		} else if (mmr.data.currenttierpatched === "Ascendant 2") {
+		} else if (updateRank.data.final_rank_patched === "Ascendant 2") {
 			setRankurl(rank.Ascendant2);
-		} else if (mmr.data.currenttierpatched === "Ascendant 3") {
+		} else if (updateRank.data.final_rank_patched === "Ascendant 3") {
 			setRankurl(rank.Ascendant3);
-		} else if (mmr.data.currenttierpatched === "Immortal 1") {
+		} else if (updateRank.data.final_rank_patched === "Immortal 1") {
 			setRankurl(rank.Immortal1);
-		} else if (mmr.data.currenttierpatched === "Immortal 2") {
+		} else if (updateRank.data.final_rank_patched === "Immortal 2") {
 			setRankurl(rank.Immortal2);
-		} else if (mmr.data.currenttierpatched === "Immortal 3") {
+		} else if (updateRank.data.final_rank_patched === "Immortal 3") {
 			setRankurl(rank.Immortal3);
-		} else if (mmr.data.currenttierpatched === "Radiant") {
+		} else if (updateRank.data.final_rank_patched === "Radiant") {
 			setRankurl(rank.Radiant);
 		}
 	}
@@ -152,10 +154,21 @@ export function UserProvider({ children }) {
 	const fetchDatawin = (e) => {
 		axios
 			.get(
-				`https://api.henrikdev.xyz/valorant/v2/mmr/ap/${userData.username}/${userData.tag}?filter=e5a1`
+				`https://api.henrikdev.xyz/valorant/v2/mmr/ap/${userData.username}/${userData.tag}?filter=${act}`
 			)
 			.then((res) => {
 				setWin(res.data);
+				console.log(res.data);
+			});
+	};
+
+	const fetchDataupdateRank = (e) => {
+		axios
+			.get(
+				`https://api.henrikdev.xyz/valorant/v2/mmr/ap/${userData.username}/${userData.tag}?filter=${act}`
+			)
+			.then((res) => {
+				setUpdateRank(res.data);
 				console.log(res.data);
 			});
 	};
@@ -172,6 +185,10 @@ export function UserProvider({ children }) {
 				fetchDatawin,
 				rankChecker,
 				rankurl,
+				act,
+				setAct,
+				updateRank,
+				fetchDataupdateRank,
 			}}
 		>
 			{children}

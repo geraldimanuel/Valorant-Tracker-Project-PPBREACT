@@ -40,7 +40,7 @@ export default function SearchPage() {
 	}
 
 	useEffect(() => {
-		if (temp1 !== "" && temp2 !== "") {
+		if (temp1 != "" && temp2 != "") {
 			setisError(false);
 		} else {
 			setisError(true);

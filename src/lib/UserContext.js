@@ -75,7 +75,7 @@ export function UserProvider({ children }) {
 	const [act, setAct] = useState("e5a1");
 
 	function rankChecker() {
-		if (updateRank.data.final_rank_patched === "Unranked") {
+		if (updateRank.data.final_rank_patched === "Unrated") {
 			setRankurl(rank.Unranked);
 		} else if (updateRank.data.final_rank_patched === "Iron 1") {
 			setRankurl(rank.Iron1);

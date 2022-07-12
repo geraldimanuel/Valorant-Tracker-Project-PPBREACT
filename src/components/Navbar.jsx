@@ -8,7 +8,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { MdArrowBackIosNew } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 export default function Navbar() {
 	let navigate = useNavigate();

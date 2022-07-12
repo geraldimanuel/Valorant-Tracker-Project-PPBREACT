@@ -62,7 +62,7 @@ export default function Rank() {
 								</Skeleton>
 							)}
 
-							{mmr.data && act == "e5a1" ? (
+							{mmr.data && act === "e5a1" ? (
 								// RR bakal ilang kalo bukan di e5a1 krn itu kan match terakhir
 								<Text color="#46B8A3" as="i">
 									{mmr.data.mmr_change_to_last_game} RR

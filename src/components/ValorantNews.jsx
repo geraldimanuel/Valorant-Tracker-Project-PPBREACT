@@ -1,8 +1,6 @@
 import {
 	Heading,
 	Flex,
-	Text,
-	Box,
 	Image,
 	useColorModeValue,
 	SimpleGrid,
@@ -43,7 +41,6 @@ function News() {
 
 export default function ValorantNews() {
 	const bg = useColorModeValue("#FFFFFF", "#121212");
-	const { news } = useContext(UserContext);
 
 	return (
 		<Flex

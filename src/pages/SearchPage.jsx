@@ -40,7 +40,7 @@ export default function SearchPage() {
 	}
 
 	useEffect(() => {
-		if (temp1 != "" && temp2 != "") {
+		if (temp1 !== "" && temp2 !== "") {
 			setisError(false);
 		} else {
 			setisError(true);
@@ -49,7 +49,7 @@ export default function SearchPage() {
 
 	function errorHandling(e) {
 		e.preventDefault();
-		if (usernameTemp.current.value != "" && tagTemp.current.value != "") {
+		if (usernameTemp.current.value !== "" && tagTemp.current.value !== "") {
 			handleSubmit();
 		}
 	}

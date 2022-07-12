@@ -8,7 +8,7 @@ import {
 	SkeletonCircle,
 	Skeleton,
 } from "@chakra-ui/react";
-import { RiMedalFill, RiTrophyFill } from "react-icons/ri";
+import { RiMedalFill } from "react-icons/ri";
 import { GiLaurelsTrophy } from "react-icons/gi";
 import { UserContext } from "../lib/UserContext";
 

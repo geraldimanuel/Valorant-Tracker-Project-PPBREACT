@@ -19,7 +19,7 @@ export default function Rank() {
 
 	// ini gw ganti krn error tpi gatau kedepannya ngaruh ga
 	useEffect(() => {
-		if (mmr.data != null) rankChecker();
+		if (updateRank.data != null) rankChecker();
 	});
 
 	return (

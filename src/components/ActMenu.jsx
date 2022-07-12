@@ -1,14 +1,6 @@
-import {
-	Menu,
-	MenuButton,
-	MenuList,
-	MenuItem,
-	Button,
-	Select,
-} from "@chakra-ui/react";
+import { Select } from "@chakra-ui/react";
 import { UserContext } from "../lib/UserContext";
 import { React, useContext, useEffect } from "react";
-import { BsChevronDown } from "react-icons/bs";
 
 export default function ActMenu() {
 	const { act, setAct } = useContext(UserContext);

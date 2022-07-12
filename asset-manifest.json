@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Valorant-Tracker-Project-PPBREACT/static/css/main.31e35a91.css",
-    "main.js": "/Valorant-Tracker-Project-PPBREACT/static/js/main.caecf873.js",
+    "main.js": "/Valorant-Tracker-Project-PPBREACT/static/js/main.c9fb12bd.js",
     "static/media/wallpaper.jpg": "/Valorant-Tracker-Project-PPBREACT/static/media/wallpaper.0a793feaa1992fd3d720.jpg",
     "static/media/open-sans-all-400-normal.woff": "/Valorant-Tracker-Project-PPBREACT/static/media/open-sans-all-400-normal.3bc4108fa8f9a72e6ea5.woff",
     "static/media/open-sans-cyrillic-ext-400-normal.woff2": "/Valorant-Tracker-Project-PPBREACT/static/media/open-sans-cyrillic-ext-400-normal.acfea1d2352591b09c46.woff2",
@@ -14,10 +14,10 @@
     "static/media/open-sans-greek-ext-400-normal.woff2": "/Valorant-Tracker-Project-PPBREACT/static/media/open-sans-greek-ext-400-normal.6e872659616d9b8fb28c.woff2",
     "index.html": "/Valorant-Tracker-Project-PPBREACT/index.html",
     "main.31e35a91.css.map": "/Valorant-Tracker-Project-PPBREACT/static/css/main.31e35a91.css.map",
-    "main.caecf873.js.map": "/Valorant-Tracker-Project-PPBREACT/static/js/main.caecf873.js.map"
+    "main.c9fb12bd.js.map": "/Valorant-Tracker-Project-PPBREACT/static/js/main.c9fb12bd.js.map"
   },
   "entrypoints": [
     "static/css/main.31e35a91.css",
-    "static/js/main.caecf873.js"
+    "static/js/main.c9fb12bd.js"
   ]
 }

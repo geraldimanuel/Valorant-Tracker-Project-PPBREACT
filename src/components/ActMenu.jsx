@@ -18,7 +18,7 @@ export default function ActMenu() {
 	return (
 		<Select
 			w="140px"
-			h="40px"
+			h={{ md: "40px", base: "35px" }}
 			borderRadius="10px"
 			value={act}
 			onChange={handleChange}

@@ -36,11 +36,11 @@ export default function Profile() {
 			<Flex
 				flexDirection={{ md: "column", base: "column" }}
 				alignItems="center"
-				rowGap={{ base: 5, md: 0 }}
+				rowGap={{ base: 4, md: 0 }}
 			>
-				<Heading size="sm" color="#C0C2C8">
+				<Text color="#C0C2C8" fontWeight="semibold">
 					Your Profile
-				</Heading>
+				</Text>
 				<Flex flexDirection={{ md: "column", base: "row" }} columnGap={9}>
 					<Flex
 						flexDirection="column"
@@ -124,9 +124,13 @@ export default function Profile() {
 					</Flex>
 				</Flex>
 				{data.data ? (
-					<Heading size="sm" color="#C0C2C8" mt={{ md: "35px", base: "0px" }}>
+					<Text
+						color="#C0C2C8"
+						mt={{ md: "35px", base: "0px" }}
+						fontWeight="semibold"
+					>
 						Updated {data.data.last_update}.
-					</Heading>
+					</Text>
 				) : null}
 			</Flex>
 		</Flex>

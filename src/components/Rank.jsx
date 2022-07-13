@@ -33,9 +33,9 @@ export default function Rank() {
 			p={{ md: 10, base: 5 }}
 			flexDirection="column"
 		>
-			<Heading size="sm" color="#AAB5B3">
+			<Text fontSize="lg" color="#AAB5B3" fontWeight="semibold">
 				Current rank
-			</Heading>
+			</Text>
 			<Flex
 				h="100%"
 				alignItems="center"

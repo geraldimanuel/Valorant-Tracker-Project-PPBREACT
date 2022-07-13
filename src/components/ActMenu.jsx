@@ -23,6 +23,8 @@ export default function ActMenu() {
 			value={act}
 			onChange={handleChange}
 			variant="filled"
+			fontWeight="semibold"
+			color="#AAB5B3"
 		>
 			<option value="e5a1">Ep 5 - Act 1</option>
 			<option value="e4a3">Ep 4 - Act 3</option>
